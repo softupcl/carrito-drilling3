@@ -16,8 +16,7 @@ renderProductos(productos);
 const botonCarrito = document.querySelector('#btnCarrito')
 botonCarrito.addEventListener('click', renderCarrito);
 
-//const botonFinalizar = document.querySelector('#btnFinalizar')
-//botonFinalizar.addEventListener('click',window.location.assign('resumen-compra.html'));
+
 
 
 

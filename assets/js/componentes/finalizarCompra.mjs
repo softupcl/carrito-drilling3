@@ -1,5 +1,3 @@
-import Carrito from "../clases/Carrito.mjs"
-
 const resumenLista = document.querySelector('#resumen')
 const totalCarrito = document.querySelector('#total')
 
@@ -29,6 +27,9 @@ export const finalizarCompra = () =>{
 
     resumenLista.innerHTML = carrito
     totalCarrito.innerText = total
+
+    localStorage.removeItem('carrito')
+
 }
 
-finalizarCompra()
+finalizarCompra();

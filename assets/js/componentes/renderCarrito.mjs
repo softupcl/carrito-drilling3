@@ -1,5 +1,3 @@
-import Carrito from "../clases/Carrito.mjs"
-
 const divCarrito = document.querySelector('#mostraCarrito');
 const carritoVacio = document.querySelector('#carritoVacio');
 const tbody = document.querySelector('.table-group-divider')
@@ -14,8 +12,7 @@ export const renderCarrito = () => {
     }else{
 
      const productosEnCarrito = JSON.parse(localStorage.getItem('carrito'));
-
-       
+      
       const carrito = productosEnCarrito.map((producto, index) =>
       ` 
        <tr>
