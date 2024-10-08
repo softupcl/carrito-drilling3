@@ -3,6 +3,8 @@ import Carrito from "../clases/Carrito.mjs"
 const divCarrito = document.querySelector('#mostraCarrito');
 const carritoVacio = document.querySelector('#carritoVacio');
 const tbody = document.querySelector('.table-group-divider')
+const totalCarrito = document.querySelector('#total')
+
 tbody.innerHTML = ''
 
 export const renderCarrito = () => {
@@ -11,9 +13,7 @@ export const renderCarrito = () => {
         carritoVacio.style.display = 'block';
     }else{
 
-        const productosEnCarrito = JSON.parse(localStorage.getItem('carrito'));
-
-        console.log(productosEnCarrito);
+     const productosEnCarrito = JSON.parse(localStorage.getItem('carrito'));
 
        
       const carrito = productosEnCarrito.map((producto, index) =>
@@ -25,7 +25,11 @@ export const renderCarrito = () => {
             <td>${producto.price * 1000}</td>
         </tr>`
         ).join('')
+
+        const total = productosEnCarrito.reduce((acc, item) =>item.price + acc, 0) * 1000
         tbody.innerHTML = carrito
+        totalCarrito.innerText = total
+
         carritoVacio.style.display = 'none';
         divCarrito.style.display = 'block';
     }
